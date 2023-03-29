@@ -1,0 +1,35 @@
+﻿<Window x:Class="Ssg.Wpf.Windows.EditFileWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ssg.Wpf.Windows" 
+        xmlns:controls="clr-namespace:Ssg.Wpf.Controls"
+        mc:Ignorable="d"
+        Title="EditFileWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" 
+                    Orientation="Horizontal" HorizontalAlignment="Left" Margin="5">
+            <Button Content="Close" Click="btnClose_Click" Width="50"/>
+            <Button Content="Save" Click="btnSave_Click" Width="50" Margin="5 0 0 0"/>
+            <TextBlock x:Name="txtStatusBar" Margin="5 2 0 0"
+                       Foreground="Red" Text="Unsaved changes" Visibility="Collapsed"/>
+        </StackPanel>
+        
+        <TextBox Grid.Row="1" KeyUp="txtContentModified_KeyUp"
+                 x:Name="txtFileContent"
+                 FontSize="16" Padding="10" Background="LightYellow"
+                 TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True"
+                ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+        <!--<controls:TextBoxCustom Grid.Row="1" KeyUp="txtContentModified_KeyUp"
+                 x:Name="txtFileContent"
+                 FontSize="16" Padding="10" Background="LightYellow"
+                 TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True"
+                ScrollViewer.VerticalScrollBarVisibility="Visible"/>-->
+
+    </Grid>
+</Window>
